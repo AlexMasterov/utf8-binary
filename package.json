@@ -1,0 +1,43 @@
+{
+  "name": "utf8-binary",
+  "version": "0.1.0",
+  "description": "A fast UTF-8 encoding and decoding",
+  "keywords": [
+    "utf8",
+    "binary",
+    "encoding",
+    "decoding"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Alex Masterov",
+    "email": "alex.masterow@gmail.com"
+  },
+  "main": "./src/index.js",
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "directories": {
+    "test": "test/"
+  },
+  "scripts": {
+    "test": "nyc mocha test/*.test.js",
+    "test-report": "nyc --reporter=html --reporter=text mocha test/*.test.js",
+    "coverage": "nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+  },
+  "dependencies": {
+    "ascii-chr": "0.2.1"
+  },
+  "devDependencies": {
+    "coveralls": "3.0.2",
+    "mocha": "5.2.0",
+    "nyc": "13.1.0"
+  },
+  "nyc": {
+    "cache": false,
+    "reporter": [],
+    "include": [
+      "src/**/*.js"
+    ]
+  }
+}
