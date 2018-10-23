@@ -1,19 +1,29 @@
 {
-  "name": "utf8-binary",
-  "version": "0.1.0",
+  "name": "utf8-bin",
+  "version": "0.2.1",
   "description": "A fast UTF-8 encoding and decoding",
   "keywords": [
     "utf8",
     "binary",
     "encoding",
-    "decoding"
+    "decoding",
+    "browser"
   ],
   "license": "MIT",
   "author": {
     "name": "Alex Masterov",
     "email": "alex.masterow@gmail.com"
   },
+  "homepage": "https://github.com/AlexMasterov/utf8-bin.js#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexMasterov/utf8-bin.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexMasterov/utf8-bin.js/issues"
+  },
   "main": "./src/index.js",
+  "module": "./dist/bundle.esm.js",
   "engines": {
     "node": ">=8.3.0"
   },
@@ -21,17 +31,18 @@
     "test": "test/"
   },
   "scripts": {
+    "build": "rollup -c",
     "test": "nyc mocha test/*.test.js",
     "test-report": "nyc --reporter=html --reporter=text mocha test/*.test.js",
     "coverage": "nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
-  "dependencies": {
-    "ascii-chr": "0.2.1"
-  },
   "devDependencies": {
     "coveralls": "3.0.2",
     "mocha": "5.2.0",
-    "nyc": "13.1.0"
+    "nyc": "13.1.0",
+    "rollup": "0.66.6",
+    "rollup-plugin-bundle-size": "1.0.2",
+    "rollup-plugin-terser": "3.0.0"
   },
   "nyc": {
     "cache": false,

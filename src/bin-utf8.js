@@ -1,7 +1,5 @@
 'use strict';
 
-const CHR2 = require('./utf8-chr2');
-
 const fromCharCode = String.fromCharCode;
 const fromCodePoint = String.fromCodePoint;
 
@@ -11,7 +9,7 @@ function binToUtf8(bin, offset, length) {
     c = bin[i];
 
     if (c < 0x80) { // 1 byte
-      str += CHR2[c];
+      str += fromCharCode(c);
     } else if (c < 0xe0) { // 2 bytes
       str += fromCharCode(
         (c & 0x1f) << 6
