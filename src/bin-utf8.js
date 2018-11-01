@@ -4,22 +4,24 @@ const fromCharCode = String.fromCharCode;
 const fromCodePoint = String.fromCodePoint;
 
 function binToUtf8(bin, offset, length) {
-  let str = '';
-  for (let c, i = offset; i < length; i++) {
-    c = bin[i];
+  let str = '', c;
+  while (offset < length) {
+    c = bin[offset];
 
     if (c < 0x80) { // 1 byte
       str += fromCharCode(c);
+      offset += 1;
     } else if (c < 0xe0) { // 2 bytes
       str += fromCharCode(
         (c & 0x1f) << 6
-        | bin[++i] & 0x3f);
+        | bin[offset + 1] & 0x3f);
+      offset += 2;
     } else { // 3-4 bytes
       str += fromCodePoint(
         (c & 0x0f) << 12
-        | (bin[i + 1] & 0x3f) << 6
-        | bin[i + 2] & 0x3f);
-      i += 2;
+        | (bin[offset + 1] & 0x3f) << 6
+        | bin[offset + 2] & 0x3f);
+      offset += 3;
     }
   }
 
