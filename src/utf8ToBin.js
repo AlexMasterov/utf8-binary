@@ -1,8 +1,8 @@
 'use strict';
 
-const CHR2 = require('./utf8-chr2');
+const { charCode } = require('./binary');
+const CHR2 = require('./chr2');
 
-const fromCharCode = String.fromCharCode;
 const CHAR_CONTROL = '\u0080';
 const CHAR_SAMARITAN = '\u0800';
 
@@ -17,7 +17,7 @@ function utf8toBin(str) {
       bin += CHR2[c.charCodeAt(0)];
     } else { // 3-4 bytes
       c = c.codePointAt(0);
-      bin += fromCharCode(
+      bin += charCode(
         0xe0 | c >> 12 & 0x0f,
         0x80 | c >> 6 & 0x3f,
         0x80 | c & 0x3f);

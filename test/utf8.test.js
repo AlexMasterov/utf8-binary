@@ -2,8 +2,9 @@
 
 const assert = require('assert');
 
-const utf8toBin = require('../src/utf8-bin');
-const binToUtf8 = require('../src/bin-utf8');
+const utf8toBin = require('../src/utf8ToBin');
+const binToUtf8 = require('../src/binToUtf8');
+const viewToUtf8 = require('../src/viewToUtf8');
 
 const byte = (...bytes) => Buffer.from(bytes);
 const stub = (name, value, bin) => ({ name, value, bin });
@@ -23,10 +24,15 @@ const test = desc => process =>
   describe(desc, () => stubs.forEach(({ name, value, bin }) =>
     it(name, () => process(value, bin))));
 
-describe('UTF-8 binary', () => {
+describe('utf8-bin', () => {
   test('utf8toBin')((value, bin) =>
     assert.deepStrictEqual(utf8toBin(value), bin.latin1Slice()));
 
   test('binToUtf8')((value, bin) =>
     assert.deepStrictEqual(binToUtf8(bin, 0, bin.length), value));
+
+  test('viewToUtf8')((value, bin) => {
+    const view = new DataView(bin.buffer, bin.byteOffset, bin.byteLength);
+    assert.deepStrictEqual(viewToUtf8(view, 0, view.byteLength), value);
+  });
 });

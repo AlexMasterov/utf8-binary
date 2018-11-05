@@ -1,6 +1,6 @@
 {
   "name": "utf8-bin",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A fast UTF-8 encoding and decoding",
   "keywords": [
     "utf8",
@@ -23,7 +23,7 @@
     "url": "https://github.com/AlexMasterov/utf8-bin.js/issues"
   },
   "main": "./src/index.js",
-  "module": "./dist/bundle.esm.js",
+  "module": "./dist/index.esm.js",
   "engines": {
     "node": ">=8.3.0"
   },
@@ -40,8 +40,11 @@
     "coveralls": "3.0.2",
     "mocha": "5.2.0",
     "nyc": "13.1.0",
-    "rollup": "0.66.6",
+    "rollup": "0.67.0",
     "rollup-plugin-bundle-size": "1.0.2",
+    "rollup-plugin-cjs-es": "0.7.0",
+    "rollup-plugin-delete": "0.1.2",
+    "rollup-plugin-node-resolve": "3.4.0",
     "rollup-plugin-terser": "3.0.0"
   },
   "nyc": {

@@ -20,12 +20,15 @@ yarn add utf8-bin
 ## Usage
 
 ```javascript
-const { utf8toBin, binToUtf8 } = require('utf8-bin');
+const { utf8toBin, binToUtf8, viewToUtf8 } = require('utf8-bin');
 
 const bin = utf8toBin('\u0080'); // '\xc2\x80'
 
 const buf = Buffer.from(bin, 'binary');
 binToUtf8(buf, 0, buf.length); // '\u0080'
+
+const view = new DataView(bin.buffer, bin.byteOffset, bin.byteLength);
+viewToUtf8(View, 0, view.byteLength); // '\u0080'
 ```
 
 ## Tests
