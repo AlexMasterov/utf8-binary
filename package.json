@@ -1,6 +1,6 @@
 {
   "name": "utf8-bin",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A fast UTF-8 encoding and decoding",
   "keywords": ["utf8", "binary", "encoding", "decoding", "browser"],
   "license": "MIT",
@@ -18,6 +18,7 @@
   },
   "main": "./src/index.js",
   "module": "./dist/index.esm.js",
+  "unpkg": "./dist/index.esm.min.js",
   "files": ["src/", "dist/"],
   "engines": {
     "node": ">=8.3.0"
