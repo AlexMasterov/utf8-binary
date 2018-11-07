@@ -2,13 +2,7 @@
   "name": "utf8-bin",
   "version": "0.3.0",
   "description": "A fast UTF-8 encoding and decoding",
-  "keywords": [
-    "utf8",
-    "binary",
-    "encoding",
-    "decoding",
-    "browser"
-  ],
+  "keywords": ["utf8", "binary", "encoding", "decoding", "browser"],
   "license": "MIT",
   "author": {
     "name": "Alex Masterov",
@@ -24,11 +18,9 @@
   },
   "main": "./src/index.js",
   "module": "./dist/index.esm.js",
+  "files": ["src/", "dist/"],
   "engines": {
     "node": ">=8.3.0"
-  },
-  "directories": {
-    "test": "test/"
   },
   "scripts": {
     "build": "rollup -c",
@@ -50,8 +42,6 @@
   "nyc": {
     "cache": false,
     "reporter": [],
-    "include": [
-      "src/**/*.js"
-    ]
+    "include": ["src/**/*.js"]
   }
 }

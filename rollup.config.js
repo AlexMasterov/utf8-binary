@@ -4,12 +4,13 @@ import cjs from "rollup-plugin-cjs-es";
 import { terser } from 'rollup-plugin-terser';
 import size from 'rollup-plugin-bundle-size';
 
+import { main, module } from './package.json';
+
 export default [{
-  input: './src/index.js',
+  input: main,
 
   output: {
-    dir: 'dist',
-    file: 'index.esm.js',
+    file: module,
     format: 'esm',
   },
 
@@ -36,11 +37,10 @@ export default [{
   cjs({ nested: true }),
   ],
 }, {
-  input: './dist/index.esm.js',
+  input: module,
 
   output: {
-    dir: 'dist',
-    file: 'index.esm.min.js',
+    file: module.replace('.js', '.min.js'),
     format: 'esm',
   },
 
