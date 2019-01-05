@@ -41,6 +41,4 @@ npm run test
 
 ## License
 
-Copyright &#169; 2018-present Alex Masterov &lt;alex.masterow@gmail.com&gt;
-
 utf8-bin is licensed under MIT and can be used for any personal or commercial project.
