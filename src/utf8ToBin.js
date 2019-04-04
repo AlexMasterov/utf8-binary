@@ -1,12 +1,11 @@
 'use strict';
 
-const { charCode } = require('./binary');
-const CHR2 = require('./chr2');
+const { charCode, charCodes2 } = require('ascii-chr');
 
 const CHAR_CONTROL = '\u0080';
 const CHAR_SAMARITAN = '\u0800';
 
-function utf8toBin(str) {
+const utf8toBin = (str) => {
   let bin = '';
   for (let c, i = 0; i < str.length; i++) {
     c = str[i];
@@ -14,7 +13,7 @@ function utf8toBin(str) {
     if (c < CHAR_CONTROL) { // 1 byte
       bin += c;
     } else if (c < CHAR_SAMARITAN) { // 2 bytes
-      bin += CHR2[c.charCodeAt(0)];
+      bin += charCodes2[c.charCodeAt(0)];
     } else { // 3-4 bytes
       c = c.codePointAt(0);
       bin += charCode(
@@ -25,6 +24,6 @@ function utf8toBin(str) {
   }
 
   return bin;
-}
+};
 
 module.exports = utf8toBin;

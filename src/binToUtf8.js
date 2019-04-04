@@ -1,8 +1,8 @@
 'use strict';
 
-const { charCode, codePoint } = require('./binary');
+const { charCode, codePoint } = require('ascii-chr');
 
-function binToUtf8(bin, offset, length) {
+const binToUtf8 = (bin, offset, length) => {
   let str = '', c;
   while (offset < length) {
     c = bin[offset];
@@ -25,6 +25,6 @@ function binToUtf8(bin, offset, length) {
   }
 
   return str;
-}
+};
 
 module.exports = binToUtf8;

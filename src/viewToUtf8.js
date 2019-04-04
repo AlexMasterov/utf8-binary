@@ -1,8 +1,8 @@
 'use strict';
 
-const { charCode, codePoint } = require('./binary');
+const { charCode, codePoint } = require('ascii-chr');
 
-function viewToUtf8(view, offset, length) {
+const viewToUtf8 = (view, offset, length) => {
   let str = '', c;
   while (offset < length) {
     c = view.getUint8(offset);
@@ -25,6 +25,6 @@ function viewToUtf8(view, offset, length) {
   }
 
   return str;
-}
+};
 
 module.exports = viewToUtf8;
