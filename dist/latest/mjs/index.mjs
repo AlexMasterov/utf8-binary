@@ -1,6 +1,6 @@
-import { chr, cpr } from './make/index.js';
-import { chrUtf2 } from './chrs/make/index.js';
-import { CONTROL, SAMARITAN, SURROGATE_HIGH, SURROGATE_LOW } from './unicode.js';
+import { chr, cpr } from './make/index.mjs';
+import { chrUtf2 } from './chrs/index.mjs';
+import { CONTROL, SAMARITAN, SURROGATE_HIGH, SURROGATE_LOW } from './unicode.mjs';
 
 const strToUtf8 = (str, offset = 0, length = str.length) => {
   let c, bin = '';
