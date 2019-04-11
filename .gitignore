@@ -1,10 +1,16 @@
+.git/
+.nyc_output/
+bench/
 coverage/
-lib/
 node_modules/
 
-.git/
 *.lock
 *.log
 .*cache
 .ignore
 .tern*
+.npmignore
+npm-debug.log
+package-lock.json
+yarn.lock
+yarn-error.log
