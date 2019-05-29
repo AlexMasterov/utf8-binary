@@ -27,13 +27,12 @@
     "build": "node rollup/all",
     "build:cjs": "node rollup/cjs",
     "build:esm": "node rollup/esm",
-    "test": "nyc mocha test/**/*.test.js",
     "build:mjs": "node rollup/mjs",
+    "test": "nyc mocha test/*.test.js test/**/*.test.js",
     "test:report": "nyc --reporter=html --reporter=text mocha test/**/*.test.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
-    "archiver": "3.0.0",
     "coveralls": "3.0.3",
     "fs-extra": "8.0.1",
     "mocha": "6.1.4",
