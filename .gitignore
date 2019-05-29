@@ -1,6 +1,7 @@
 .git/
 .nyc_output/
 bench/
+cache/
 coverage/
 node_modules/
 
