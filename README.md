@@ -3,7 +3,6 @@
 A fast UTF-8 encoding and decoding.
 
 [![npm](https://img.shields.io/npm/v/utf8-bin.svg)](https://www.npmjs.com/package/utf8-bin)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/AlexMasterov/utf8-bin.js.svg)](https://travis-ci.org/AlexMasterov/utf8-bin.js)
 [![Coverage Status](https://coveralls.io/repos/github/AlexMasterov/utf8-bin.js/badge.svg?branch=master)](https://coveralls.io/github/AlexMasterov/utf8-bin.js?branch=master)
 
@@ -18,27 +17,34 @@ yarn add utf8-bin
 ```
 
 ## Usage
-
 ```javascript
-const { utf8toBin, binToUtf8, viewToUtf8 } = require('utf8-bin');
+// Browser
+import { strToUtf8, utf8ToStr } from 'utf8-bin';
 
-const bin = utf8toBin('\u0080'); // '\xc2\x80'
+// Node.js
+const { strToUtf8, utf8ToStr } = require('utf8-bin'); // v8 v45+ (codePoint)
+const { strToUtf8, utf8ToStr } = require('utf8-bin/legacy');
 
-const buf = Buffer.from(bin, 'binary');
-binToUtf8(buf, 0, buf.length); // '\u0080'
-
-const view = new DataView(bin.buffer, bin.byteOffset, bin.byteLength);
-viewToUtf8(View, 0, view.byteLength); // '\u0080'
+// Node.js v8.6+
+//  node --experimental-modules
+// Node.js v12+
+//  node --experimental-modules --es-module-specifier-resolution=node
+import { strToUtf8, utf8ToStr } from 'utf8-bin/index';
 ```
 
-## Tests
+## API
+**String**
 
-Run tests as follows:
+#### `utf8Length(str[, offset, length])`
+#### `strToUtf8(str[, offset, length])`
 
-```
-npm run test
-```
+**Uint8Array** | **Buffer**
+
+#### `utf8ToStr(buf[, offset, length])`
+
+**DataView**
+
+#### `viewUtf8ToStr(view[, offset, length])`
 
 ## License
-
-utf8-bin is licensed under MIT and can be used for any personal or commercial project.
+[MIT](LICENSE)
