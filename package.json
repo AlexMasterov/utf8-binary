@@ -1,6 +1,6 @@
 {
   "name": "utf8-bin",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "A fast UTF-8 encoding and decoding",
   "keywords": ["utf8", "binary", "encoding", "decoding", "browser"],
   "license": "MIT",
@@ -11,36 +11,50 @@
     "url": "https://github.com/AlexMasterov/utf8-bin.js/issues"
   },
   "main": "./index.js",
-  "module": "./dist/latest/esm/index.js",
-  "browser": "./dist/latest/esm/index.js",
-  "unpkg": "./dist/latest/esm/index.min.js",
-  "files": ["dist/", "index.js", "LICENSE"],
-  "engines": {
-    "node": ">=7.0.0"
+  "jsnext:main": "./index.mjs",
+  "module": "./latest/esm/index.js",
+  "browser": {
+    "./index.js": "./latest/esm/index.js",
+    "./unicode.js": "./latest/esm/unicode.js",
+    "./make/index.js": "./latest/esm/make/index.js",
+    "./chrs/index.js": "./latest/esm/chrs/index.js",
+    "./chrs/make/index.js": "./latest/esm/chrs/make/index.js",
+    "./legacy/index.js": "./latest/esm/legacy/index.js"
   },
+  "files": [],
+  "sideEffects": false,
   "scripts": {
-    "build": "node rollup/build",
+    "build": "node rollup/all",
+    "build:cjs": "node rollup/cjs",
+    "build:esm": "node rollup/esm",
+    "build:mjs": "node rollup/mjs",
     "test": "nyc mocha test/*.test.js",
-    "test:report": "nyc --reporter=html --reporter=text mocha test/*.test.js",
+    "test:report": "nyc --reporter=html --reporter=text mocha test/**/*.test.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "sideEffects": false,
-  "dependencies": {
-    "ascii-chr": "0.4.2"
-  },
   "devDependencies": {
+    "archiver": "3.0.0",
     "coveralls": "3.0.3",
-    "fs-extra": "7.0.1",
-    "mocha": "6.0.2",
-    "nyc": "13.3.0",
-    "rollup": "1.8.0",
+    "fs-extra": "8.0.1",
+    "mocha": "6.1.4",
+    "nyc": "14.1.1",
+    "rollup": "1.12.4",
     "rollup-plugin-cjs-es": "0.7.0",
-    "rollup-plugin-node-resolve": "4.0.1",
-    "rollup-plugin-terser": "4.0.4"
+    "rollup-plugin-node-resolve": "5.0.0"
+  },
+  "mocha": {
+    "check-leaks": false,
+    "file": "test/_mocha",
+    "timeout": 5000,
+    "ui": "qunit"
   },
   "nyc": {
-    "cache": false,
+    "cache": true,
+    "cacheDir": "./cache/nyc",
+    "sourceMap": false,
+    "instrument": true,
     "reporter": [],
-    "include": ["src/**/*.js"]
+    "include": ["src/**/*.js"],
+    "exclude": ["src/**/index.js"]
   }
 }
