@@ -6,7 +6,7 @@ const {
   utf8byte2,
   utf8byte3,
   utf8byte4,
-} = require('./utf8/bytes');
+} = require('./utf8');
 
 const makeSource = (srcPath) =>
     (modulePath) => require(`${srcPath}/${modulePath}`);
