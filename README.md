@@ -18,8 +18,8 @@ yarn add utf8-bin
 ## Usage
 __ES Modules__
 ```js
-const { strToUtf8, utf8ToStr } = require('utf8-bin');        // ES6 (codePoint)
-const { strToUtf8, utf8ToStr } = require('utf8-bin/legacy'); // ES5
+import { strToUtf8, utf8ToStr } from 'utf8-bin';        // ES6 (codePoint)
+import { strToUtf8, utf8ToStr } from 'utf8-bin/legacy'; // ES5
 
 // Node v8.6  --experimental-modules
 // Node v12.0 --experimental-modules --es-module-specifier-resolution=node
