@@ -2,7 +2,13 @@
   "name": "utf8-bin",
   "version": "1.0.2",
   "description": "A fast UTF-8 encoding and decoding",
-  "keywords": ["utf8", "binary", "encoding", "decoding", "browser"],
+  "keywords": [
+    "utf8",
+    "binary",
+    "encoding",
+    "decoding",
+    "browser"
+  ],
   "license": "MIT",
   "author": "Alex Masterov <alex.masterow@gmail.com>",
   "homepage": "https://github.com/AlexMasterov/utf8-bin.js#readme",
@@ -32,13 +38,13 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
-    "coveralls": "3.0.4",
-    "fs-extra": "8.0.1",
-    "mocha": "6.1.4",
+    "coveralls": "3.0.5",
+    "fs-extra": "8.1.0",
+    "mocha": "6.2.0",
     "nyc": "14.1.1",
-    "rollup": "1.14.4",
-    "rollup-plugin-cjs-es": "0.8.0",
-    "rollup-plugin-node-resolve": "5.0.1"
+    "rollup": "1.17.0",
+    "rollup-plugin-cjs-es": "0.9.0",
+    "rollup-plugin-node-resolve": "5.2.0"
   },
   "mocha": {
     "check-leaks": false,
@@ -52,7 +58,11 @@
     "sourceMap": false,
     "instrument": true,
     "reporter": [],
-    "include": ["src/**/*.js"],
-    "exclude": ["src/**/index.js"]
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/index.js"
+    ]
   }
 }
