@@ -1,6 +1,6 @@
 {
   "name": "utf8-bin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A fast UTF-8 encoding and decoding",
   "keywords": [
     "utf8",
