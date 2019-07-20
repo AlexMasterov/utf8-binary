@@ -8,4 +8,5 @@ module.exports = class Utf8BinMake {
   static get pushEmpty() { return require('./empty'); }
   static get pushUtf2() { return require('./utf2'); }
   static get makeChr1Str() { return require('./chr1_str'); }
+  static get makeStrToUint8() { return require('./str-uint8'); }
 };
