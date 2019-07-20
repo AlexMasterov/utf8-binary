@@ -3,39 +3,29 @@
 const viewUtf8ToStr = source('view/utf8-str');
 const viewUtf8ToStrL = source('legacy/view/utf8-str');
 
-const toView = (buf) =>
-  new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
-
 suite('viewUtf8ToStr + legacy');
 
+const onByteTest = (buf) => {
+  const view = toView(buf);
+  const str = toUtf8(buf);
+
+  eq(viewUtf8ToStr(view), str);
+  eq(viewUtf8ToStrL(view), str);
+};
+
 test('1 byte (u0000 — u007f)', () => {
-  utf8byte1((str, bin, buf) => {
-    const view = toView(buf);
-    eq(viewUtf8ToStr(view), str);
-    eq(viewUtf8ToStrL(view), str);
-  });
+  eachByte(utf8byte1, onByteTest);
 });
 
 test('2 bytes (u0080 — u07ff)', () => {
-  utf8byte2((str, bin, buf) => {
-    const view = toView(buf);
-    eq(viewUtf8ToStr(view), str);
-    eq(viewUtf8ToStrL(view), str);
-  });
+  eachByte(utf8byte2, onByteTest);
 });
 
 test('3 bytes (u0800 — uffff)', () => {
-  utf8byte3((str, bin, buf) => {
-    const view = toView(buf);
-    eq(viewUtf8ToStr(view), str);
-    eq(viewUtf8ToStrL(view), str);
-  });
+  eachByte(utf8byte3.low, onByteTest);
+  eachByte(utf8byte3.high, onByteTest);
 });
 
 test('4 bytes (u10000 — u10ffff)', () => {
-  utf8byte4((str, bin, buf) => {
-    const view = toView(buf);
-    eq(viewUtf8ToStr(view), str);
-    eq(viewUtf8ToStrL(view), str);
-  });
+  eachByte(utf8byte4, onByteTest);
 });
