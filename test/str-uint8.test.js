@@ -1,14 +1,16 @@
 'use strict';
 
 const strToUint8 = source('str-uint8');
+const strToUint8L = source('legacy/str-uint8');
 
-suite('strToUint8');
+suite('strToUint8 + legacy');
 
 const onByteTest = (buf) => {
   const str = toUtf8(buf);
   const u8 = toUint8(buf);
 
   same(strToUint8(str), u8);
+  same(strToUint8L(str), u8);
 };
 
 test('1 byte (u0000 — u007f)', () => {
