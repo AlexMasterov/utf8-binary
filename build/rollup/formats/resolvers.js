@@ -11,7 +11,7 @@ const remake = (obj, fn) =>
 // cjs
 const trimExt = (filename) => {
   const ext = filename.lastIndexOf('.');
-  return ext > 0 ? filename.slice(0, ext) : filename;
+  return (ext) > 0 ? filename.slice(0, ext) : filename;
 };
 
 const makeInputNormalizer = (dir) => (key, value) =>

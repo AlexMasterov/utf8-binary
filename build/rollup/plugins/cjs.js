@@ -2,12 +2,14 @@
 
 const cjs = require('rollup-plugin-cjs-es');
 
-const makeExportTypeFilter = exports => {
+const makeExportTypeFilter = (exports) => {
   const types = new Map(Object.entries(exports));
-  return id => types.has(id) ? types.get(id) : null;
+  return (id) => types.has(id)
+    ? types.get(id)
+    : null;
 };
 
-module.exports = ({ exports, ...options } = {}) =>
+const setupCommonJs = ({ exports, ...options } = {}) =>
   cjs({
     cache: false,
     nested: true,
@@ -15,3 +17,5 @@ module.exports = ({ exports, ...options } = {}) =>
     ...options,
     ...(exports && { exportType: makeExportTypeFilter(exports) }),
   });
+
+module.exports = setupCommonJs;

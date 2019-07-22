@@ -1,21 +1,16 @@
 'use strict';
 
 const { build, mjs } = require('./rollup');
-const exportTypes = require('./exports');
 const { toES6Module } = require('./patches');
 
-build('mjs (node)')(
+const inputFiles = require('./esm-input');
+const exportTypes = require('./esm-export');
+
+build('mjs (node)').with(
   mjs({
-    input: {
-      'index.js': 'index.js',
-      'unicode.js': 'unicode.js',
-      'make/index.js': 'make/index.js',
-      'chrs/index.js': 'chrs/index.js',
-      'chrs/make/index.js': 'chrs/make/index.js',
-      'legacy/index.js': 'legacy/index.js',
-    },
+    input: inputFiles,
     target: 'dist/latest/mjs',
     exports: exportTypes,
     patch: toES6Module,
   }),
-).catch(console.error);
+);

@@ -2,9 +2,9 @@
 
 const { copySync } = require('fs-extra');
 
-const makeFilterPaths = paths => {
+const makeFilterPaths = (paths) => {
   const exclude = new Set(paths);
-  return path => !exclude.has(path);
+  return (path) => !exclude.has(path);
 };
 
 const copy = ({ src, dest, exclude, verbose = false } = {}) => {

@@ -5,10 +5,12 @@ const merge = (...patches) =>
     Object.keys(patch).forEach(module => {
       const patches = patch[module];
       const found = merged[module];
+
       merged[module] = found
         ? [...found, ...patches]
         : patches;
     });
+
     return merged;
   }, {});
 

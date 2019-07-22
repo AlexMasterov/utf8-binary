@@ -2,6 +2,6 @@
 
 const { build, cjs } = require('./rollup');
 
-build('cjs (node)')(
+build('cjs (node)').with(
   cjs({ target: 'dist/latest/cjs' }),
-).catch(console.error);
+);

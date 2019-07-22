@@ -1,6 +1,6 @@
 'use strict';
 
-const classToObjRequire = code => code
+const classToObjRequire = (code) => code
 // class => obj
   .replace(/class [^{]+/g, '')
   .replace(/static? get (.+)\(\).+(require(.+));[^}]+}/g, `$1: $2,`);

@@ -8,4 +8,5 @@ module.exports = toObjRequire(
   'chrs/index.js',
   'chrs/make/index.js',
   'legacy/index.js',
+  'legacy/make/index.js',
 );
