@@ -1,8 +1,8 @@
 'use strict';
 
-const { chr, cpr } = require('../../make');
+const { chr, cpr } = require('../make');
 
-const viewUtf8ToStr = (view, offset = 0, length = view.byteLength) => {
+const utf8viewToStr = (view, offset = 0, length = view.byteLength) => {
   let c, str = '';
   while (offset < length) {
     c = view.getUint8(offset);
@@ -39,4 +39,4 @@ const viewUtf8ToStr = (view, offset = 0, length = view.byteLength) => {
   return str;
 };
 
-module.exports = viewUtf8ToStr;
+module.exports = utf8viewToStr;
