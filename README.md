@@ -1,40 +1,41 @@
-# utf8-bin
+# @asm/utf8
 
-A fast UTF-8 encoding and decoding.
+A fast UTF-8 encoding and decoding tools.
 
-[![npm](https://img.shields.io/npm/v/utf8-bin.svg)](https://www.npmjs.com/package/utf8-bin)
-[![Build Status](https://travis-ci.org/AlexMasterov/utf8-bin.js.svg)](https://travis-ci.org/AlexMasterov/utf8-bin.js)
-[![Coverage Status](https://coveralls.io/repos/github/AlexMasterov/utf8-bin.js/badge.svg?branch=master)](https://coveralls.io/github/AlexMasterov/utf8-bin.js?branch=master)
+[![Build Status](https://travis-ci.org/AlexMasterov/utf8.js.svg)](https://travis-ci.org/AlexMasterov/utf8.js)
+[![Coverage Status](https://coveralls.io/repos/github/AlexMasterov/utf8.js/badge.svg?branch=master)](https://coveralls.io/github/AlexMasterov/utf8.js?branch=master)
 
 ## Installation
 With [npm](https://www.npmjs.com/package/npm):
 ```sh
-npm install utf8-bin
+npm install @asm/utf8
 ```
 With [yarn](https://yarnpkg.com):
 ```sh
-yarn add utf8-bin
+yarn add @asm/utf8
 ```
 ## Usage
 __ES Modules__
 ```js
-import { strToUtf8, utf8ToStr } from 'utf8-bin';        // ES6 (codePoint)
-import { strToUtf8, utf8ToStr } from 'utf8-bin/legacy'; // ES5
+// Browser | Node v12.0 --experimental-modules
+import { strToUtf8, utf8ToStr } from '@asm/utf8';        // ES6 (codePoint)
+import { strToUtf8, utf8ToStr } from '@asm/utf8/legacy'; // ES5 (charCode)
 
+// Node v11.0 --experimental-modules --es-module-specifier-resolution=node
 // Node v8.6  --experimental-modules
-// Node v12.0 --experimental-modules --es-module-specifier-resolution=node
-import { strToUtf8, utf8ToStr } from 'utf8-bin/index';
+import { strToUtf8, utf8ToStr } from '@asm/utf8/index';
 ```
 __CommonJS__
 ```js
-const { strToUtf8, utf8ToStr } = require('utf8-bin');
+const { strToUtf8, utf8ToStr } = require('@asm/utf8');
 ```
 
 ## API
 #### `utf8Length(str[, offset, length])`
 #### `strToUtf8(str[, offset, length])`
+#### `strToUint8(str[, offset, length])`
 #### `utf8ToStr(buf[, offset, length])`
-#### `viewUtf8ToStr(view[, offset, length])`
+#### `utf8viewToStr(view[, offset, length])`
 
 ## License
 [MIT](LICENSE)

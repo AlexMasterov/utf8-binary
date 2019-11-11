@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class Utf8BinMake {
+module.exports = class Utf8Make {
   static get chr() { return require('./chr'); }
   static get cpr() { return require('./cpr'); }
   // factory
