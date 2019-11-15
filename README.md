@@ -2,6 +2,7 @@
 
 A fast UTF-8 encoding and decoding tools.
 
+[![npm](https://img.shields.io/github/package-json/v/AlexMasterov/utf8.js)](https://www.npmjs.com/package/@asm/utf8)
 [![Build Status](https://travis-ci.org/AlexMasterov/utf8.js.svg)](https://travis-ci.org/AlexMasterov/utf8.js)
 [![Coverage Status](https://coveralls.io/repos/github/AlexMasterov/utf8.js/badge.svg?branch=master)](https://coveralls.io/github/AlexMasterov/utf8.js?branch=master)
 
@@ -31,11 +32,11 @@ const { strToUtf8, utf8ToStr } = require('@asm/utf8');
 ```
 
 ## API
-#### `utf8Length(str[, offset, length])`
-#### `strToUtf8(str[, offset, length])`
-#### `strToUint8(str[, offset, length])`
-#### `utf8ToStr(buf[, offset, length])`
-#### `utf8viewToStr(view[, offset, length])`
+##### `utf8Length(str[, offset, length])`
+##### `strToUtf8(str[, offset, length])`
+##### `strToUint8(str[, offset, length])`
+##### `utf8ToStr(buf[, offset, length])`
+##### `utf8viewToStr(view[, offset, length])`
 
 ## License
 [MIT](LICENSE)
