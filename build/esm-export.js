@@ -10,7 +10,7 @@ module.exports = makeExportByDefault(
   'str-uint8.js',
   'str-utf8.js',
   'utf8-str.js',
-  'utf8_length.js',
+  'utf8len.js',
   'utf8view-str.js',
   // legacy (v8v45)
   'legacy/make/str-uint8.js',
