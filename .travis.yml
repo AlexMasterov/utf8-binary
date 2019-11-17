@@ -38,7 +38,7 @@ install:
   - npm install --ignore-scripts
 
 script:
-  - npm run test
+  - npm run test:coverage
 
 after_success:
   - npm run coverage
