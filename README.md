@@ -18,11 +18,11 @@ yarn add @asm/utf8
 ## Usage
 __ES Modules__
 ```js
-// Browser | Node v12.0 --experimental-modules
+// Browser | Node v13.2 | Node v12.8 --experimental-modules
 import { strToUtf8, utf8ToStr } from '@asm/utf8';        // ES6 (codePoint)
 import { strToUtf8, utf8ToStr } from '@asm/utf8/legacy'; // ES5 (charCode)
 
-// Node v11.0 --experimental-modules --es-module-specifier-resolution=node
+// Node v12.0 --experimental-modules --es-module-specifier-resolution=node
 // Node v8.6  --experimental-modules
 import { strToUtf8, utf8ToStr } from '@asm/utf8/index';
 ```
