@@ -3,15 +3,16 @@
 const { copySync } = require('fs-extra');
 
 const makeFilterPaths = (paths) => {
-  const exclude = new Set(paths);
-  return (path) => !exclude.has(path);
+  const excludes = new Set(paths);
+  return (path) => !excludes.has(path);
 };
 
-const copy = ({ src, dest, exclude, verbose = false } = {}) => {
-  const opts = {
-    ...(exclude && { filter: makeFilterPaths(exclude) }),
-  };
+const makeExcludeOpts = (exclude) => ({
+  ...(exclude && { filter: makeFilterPaths(exclude) }),
+});
 
+const copy = ({ src, dest, exclude, verbose = false } = {}) => {
+  const opts = makeExcludeOpts(exclude);
   return {
     name: 'rollup/plugins/copy',
     generateBundle() {

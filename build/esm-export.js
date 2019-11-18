@@ -1,7 +1,9 @@
 'use strict';
 
-const reduceExports = (exports, module) =>
-  (exports[module] = 'default', exports);
+const reduceExports = (exports, module) => {
+  exports[module] = 'default';
+  return exports;
+};
 
 const makeExportByDefault = (...targets) =>
   targets.reduce(reduceExports, {});

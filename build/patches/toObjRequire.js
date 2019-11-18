@@ -1,9 +1,12 @@
 'use strict';
 
+const CLASS_REGEXP = /class [^{]+/g;
+const STATIC_METHOD_REGEXP = /static? get (.+)\(\).+(require(.+));[^}]+}/g;
+
 const classToObjRequire = (code) => code
 // class => obj
-  .replace(/class [^{]+/g, '')
-  .replace(/static? get (.+)\(\).+(require(.+));[^}]+}/g, `$1: $2,`);
+  .replace(CLASS_REGEXP, '')
+  .replace(STATIC_METHOD_REGEXP, `$1: $2,`);
 
 const reduceToObjRequire = (patches, target) =>
   (patches[target] = [classToObjRequire], patches);

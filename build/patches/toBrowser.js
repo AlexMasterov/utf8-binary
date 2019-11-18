@@ -3,8 +3,10 @@
 const merge = require('./merge');
 const toES6Module = require('./toES6Module');
 
+const CHRS_REGEXP = /require\(['"](\.+\/chrs)['"]\)/;
+
 const chrBuildToFactory = (code) => code
-    .replace(/require\(['"](\.+\/chrs)['"]\)/, 'require(\'$1\/make\')');
+    .replace(CHRS_REGEXP, 'require(\'$1\/make\')');
 
 module.exports = merge(
   toES6Module,
