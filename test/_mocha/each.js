@@ -8,8 +8,10 @@ const getByteLen = (byte) => {
 };
 
 const eachByte = (buf, onByte) => {
+  const len = buf.length;
+
   let i = 0;
-  while (buf.length > i) {
+  while (len > i) {
     onByte(buf.slice(i, i += getByteLen(buf[i])));
   }
 };
