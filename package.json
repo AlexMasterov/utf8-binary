@@ -21,7 +21,6 @@
   "module": "./latest/esm/index.js",
   "browser": {
     "./index.js": "./latest/esm/index.js",
-    "./unicode.js": "./latest/esm/unicode.js",
     "./make/index.js": "./latest/esm/make/index.js",
     "./chrs/index.js": "./latest/esm/chrs/index.js",
     "./chrs/make/index.js": "./latest/esm/chrs/make/index.js",
@@ -29,18 +28,36 @@
     "./legacy/make/index.js": "./latest/esm/legacy/make/index.js"
   },
   "exports": {
-    ".": "./index.mjs",
+    ".": {
+      "require": "./index.js",
+      "default": "./index.mjs"
+    },
+    "./legacy": {
+      "require": "./legacy/index.js",
+      "default": "./legacy/index.mjs"
+    },
+    "./legacy/make": {
+      "require": "./legacy/make/index.js",
+      "default": "./legacy/make/index.mjs"
+    },
+    "./make": {
+      "require": "./make/index.js",
+      "default": "./make/index.mjs"
+    },
+    "./chrs": {
+      "require": "./chrs/index.js",
+      "default": "./chrs/index.mjs"
+    },
+    "./chrs/make": {
+      "require": "./chrs/make/index.js",
+      "default": "./chrs/make/index.mjs"
+    },
     "./index": "./index.mjs",
-    "./index.mjs": "./index.mjs",
-    "./unicode": "./unicode.mjs",
-    "./chrs": "./chrs/index.mjs",
-    "./chrs/index": "./chrs/index.mjs",
-    "./chrs/make": "./chrs/make/index.mjs",
-    "./chrs/make/index": "./chrs/make/index.mjs",
-    "./legacy": "./legacy/index.mjs",
     "./legacy/index": "./legacy/index.mjs",
-    "./legacy/make": "./legacy/make/index.mjs",
-    "./legacy/make/index": "./legacy/make/index.mjs"
+    "./legacy/make/index": "./legacy/make/index.mjs",
+    "./make/index": "./make/index.mjs",
+    "./chrs/index": "./chrs/index.mjs",
+    "./chrs/make/index": "./chrs/make/index.mjs"
   },
   "types": "./types/lib.d.ts",
   "files": [],
@@ -53,24 +70,22 @@
     "build:cjs": "node build/cjs",
     "build:esm": "node build/esm",
     "build:mjs": "node build/mjs",
-    "test": "mocha",
-    "test:coverage": "nyc mocha",
-    "test:report": "nyc --reporter=html mocha",
+    "test": "mocha 'test/**/*.test.js'",
+    "test:report": "nyc --reporter=html --reporter=text mocha 'test/**/*.test.js'",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
-    "coveralls": "3.0.8",
+    "coveralls": "3.0.9",
     "fs-extra": "8.1.0",
     "mocha": "6.2.2",
     "nyc": "15.0.0-beta.1",
-    "rollup": "1.27.4",
+    "rollup": "1.27.6",
     "rollup-plugin-cjs-es": "0.9.0",
     "rollup-plugin-node-resolve": "5.2.0"
   },
   "mocha": {
     "check-leaks": false,
     "file": "test/_mocha",
-    "spec": "test/**/*.test.js",
     "timeout": 5000,
     "ui": "qunit"
   },
@@ -79,8 +94,12 @@
     "cacheDir": "./.cache/nyc",
     "sourceMap": false,
     "instrument": true,
-    "reporter": ["text"],
-    "include": ["src/**/*.js"],
-    "exclude": ["src/**/index.js"]
+    "reporter": [],
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/index.js"
+    ]
   }
 }
