@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = class Formats {
-  static get cjs() { return require('./cjs'); }
-  static get esm() { return require('./esm'); }
-  static get mjs() { return require('./mjs'); }
+module.exports = {
+  get cjs() { return require('./cjs'); },
+  get esm() { return require('./esm'); },
+  get mjs() { return require('./mjs'); },
 };

@@ -1,7 +1,7 @@
 'use strict';
 
-const merge = (...patches) =>
-  patches.reduce((merged, patch) => {
+const merge = (...patches) => patches
+  .reduce((merged, patch) => {
     Object.keys(patch).forEach(module => {
       const patches = patch[module];
       const found = merged[module];

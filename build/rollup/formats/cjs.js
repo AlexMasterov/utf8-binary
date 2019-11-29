@@ -32,8 +32,7 @@ module.exports = ({
     copy({
       src,
       dest: target,
-      exclude: patch &&
-          Object.keys(patch).map(makeFilepathNormalizer(src)),
+      exclude: patch && Object.keys(patch).map(makeFilepathNormalizer(src)),
     }),
   ],
 });

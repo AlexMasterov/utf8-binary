@@ -9,7 +9,10 @@ const patch = (patches) => {
     transform(code, source) {
       const newCode = { code, map: null };
       const found = files.get(source);
-      found && (newCode.code = found.reduce(applyPatch, code));
+      if (found) {
+        newCode.code = found.reduce(applyPatch, code);
+      }
+
       return newCode;
     },
   };
