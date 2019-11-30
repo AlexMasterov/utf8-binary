@@ -1,7 +1,7 @@
 'use strict';
 
 const { chr } = require('../make');
-const { chrUtf2 } = require('../chrs');
+const { chr2 } = require('../chrs');
 const {
  CONTROL,
  SAMARITAN,
@@ -19,7 +19,7 @@ const strToUtf8 = (str, offset = 0, length = str.length) => {
       offset += 1;
     }
     else if (c < SAMARITAN) { // 2 bytes
-      bin += chrUtf2[c.charCodeAt(0)];
+      bin += chr2[c.charCodeAt(0)];
       offset += 1;
     }
     else if (

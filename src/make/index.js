@@ -1,12 +1,12 @@
 'use strict';
 
-module.exports = class Utf8Make {
-  static get chr() { return require('./chr'); }
-  static get cpr() { return require('./cpr'); }
-  // factory
-  static get pushChr1() { return require('./chr1'); }
-  static get pushEmpty() { return require('./empty'); }
-  static get pushUtf2() { return require('./utf2'); }
-  static get makeChr1Str() { return require('./chr1_str'); }
-  static get makeStrToUint8() { return require('./str-uint8'); }
+module.exports = {
+  get chr() { return require('./chr'); },
+  get cpr() { return require('./cpr'); },
+  // factories
+  get pushChr1() { return require('./chr1'); },
+  get makeChr1Str() { return require('./chr1_str'); },
+  get pushChr2() { return require('./chr2'); },
+  get pushEmpty() { return require('./empty'); },
+  get makeStrToUint8() { return require('./str-uint8'); },
 };

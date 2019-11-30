@@ -2,7 +2,7 @@
 
 const chr = require('./chr');
 
-const pushUtf2 = (arr, i = 0) => {
+const pushChr2 = (arr, i = 0) => {
   while (i < 2048) {
     arr[i] = chr(
       0xc0 | i >> 6 & 0x1f,
@@ -11,4 +11,4 @@ const pushUtf2 = (arr, i = 0) => {
   }
 };
 
-module.exports = pushUtf2;
+module.exports = pushChr2;
