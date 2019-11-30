@@ -1,16 +1,16 @@
 'use strict';
 
-const utf8viewToStr = source('utf8view-str');
-const utf8viewToStrL = source('legacy/utf8view-str');
+const viewToStr = source('view-str');
+const viewToStrL = source('legacy/view-str');
 
-suite('utf8viewToStr + legacy');
+suite('viewToStr + legacy');
 
 const onByteTest = (buf) => {
   const view = toView(buf);
   const str = toUtf8(buf);
 
-  eq(utf8viewToStr(view), str);
-  eq(utf8viewToStrL(view), str);
+  eq(viewToStr(view), str);
+  eq(viewToStrL(view), str);
 };
 
 test('1 byte (u0000 — u007f)', () => {

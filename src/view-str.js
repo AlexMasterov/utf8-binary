@@ -1,8 +1,8 @@
 'use strict';
 
-const { chr, cpr } = require('../make');
+const { chr, cpr } = require('./make');
 
-const utf8viewToStr = (view, offset = 0, length = view.byteLength) => {
+const viewToStr = (view, offset = 0, length = view.byteLength) => {
   let c, str = '';
   while (offset < length) {
     c = view.getUint8(offset);
@@ -25,13 +25,11 @@ const utf8viewToStr = (view, offset = 0, length = view.byteLength) => {
       offset += 3;
     }
     else { // 4 bytes
-      c = ((c & 0x07) << 18
+      str += cpr( // v8v45+
+        (c & 0x07) << 18
         | (view.getUint8(offset + 1) & 0x3f) << 12
         | (view.getUint8(offset + 2) & 0x3f) << 6
-        | view.getUint8(offset + 3) & 0x3f) - 0x10000;
-      str += chr(
-        0xd800 | c >> 10 & 0x3ff,
-        0xdc00 | c & 0x3ff);
+        | view.getUint8(offset + 3) & 0x3f);
       offset += 4;
     }
   }
@@ -39,4 +37,4 @@ const utf8viewToStr = (view, offset = 0, length = view.byteLength) => {
   return str;
 };
 
-module.exports = utf8viewToStr;
+module.exports = viewToStr;
