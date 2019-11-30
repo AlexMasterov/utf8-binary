@@ -1,13 +1,13 @@
 'use strict';
 
-const getUtf8Len = source('utf8len');
+const countUtf8 = source('count_utf8');
 
-suite('getUtf8Len');
+suite('countUtf8');
 
 const onByteTest = (buf) => {
   const str = toUtf8(buf);
 
-  eq(getUtf8Len(str), buf.length);
+  eq(countUtf8(str), buf.length);
 };
 
 test('1 byte (u0000 — u007f)', () => {

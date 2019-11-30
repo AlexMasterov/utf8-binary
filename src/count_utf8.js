@@ -7,7 +7,7 @@ const {
  SURROGATE_LOW,
 } = require('./unicode');
 
-const getUtf8Len = (bin, offset = 0, length = bin.length) => {
+const countUtf8 = (bin, offset = 0, length = bin.length) => {
   let c, len = 0;
   while (offset < length) {
     c = bin[offset];
@@ -36,4 +36,4 @@ const getUtf8Len = (bin, offset = 0, length = bin.length) => {
   return len;
 };
 
-module.exports = getUtf8Len;
+module.exports = countUtf8;
