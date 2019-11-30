@@ -1,6 +1,6 @@
 {
   "name": "@asm/utf8",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A fast UTF-8 encoding and decoding tools",
   "keywords": [
     "utf8",
@@ -21,42 +21,22 @@
   "module": "./latest/esm/index.js",
   "browser": {
     "./index.js": "./latest/esm/index.js",
+    "./legacy/index.js": "./latest/esm/legacy/index.js",
+    "./legacy/make/index.js": "./latest/esm/legacy/make/index.js",
     "./make/index.js": "./latest/esm/make/index.js",
     "./chrs/index.js": "./latest/esm/chrs/index.js",
-    "./chrs/make/index.js": "./latest/esm/chrs/make/index.js",
-    "./legacy/index.js": "./latest/esm/legacy/index.js",
-    "./legacy/make/index.js": "./latest/esm/legacy/make/index.js"
+    "./chrs/make/index.js": "./latest/esm/chrs/make/index.js"
   },
   "exports": {
-    ".": {
-      "require": "./index.js",
-      "default": "./index.mjs"
-    },
-    "./legacy": {
-      "require": "./legacy/index.js",
-      "default": "./legacy/index.mjs"
-    },
-    "./legacy/make": {
-      "require": "./legacy/make/index.js",
-      "default": "./legacy/make/index.mjs"
-    },
-    "./make": {
-      "require": "./make/index.js",
-      "default": "./make/index.mjs"
-    },
-    "./chrs": {
-      "require": "./chrs/index.js",
-      "default": "./chrs/index.mjs"
-    },
-    "./chrs/make": {
-      "require": "./chrs/make/index.js",
-      "default": "./chrs/make/index.mjs"
-    },
+    ".": "./index.js",
     "./index": "./index.mjs",
+    "./legacy": "./legacy/index.js",
     "./legacy/index": "./legacy/index.mjs",
-    "./legacy/make/index": "./legacy/make/index.mjs",
+    "./make": "./make/index.js",
     "./make/index": "./make/index.mjs",
+    "./chrs": "./chrs/index.js",
     "./chrs/index": "./chrs/index.mjs",
+    "./chrs/make": "./chrs/make/index.js",
     "./chrs/make/index": "./chrs/make/index.mjs"
   },
   "types": "./types/lib.d.ts",
