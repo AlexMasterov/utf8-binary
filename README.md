@@ -29,16 +29,15 @@ import { strToUtf8, utf8ToStr } from '@asm/utf8/index';
 ```
 __CommonJS__
 ```js
-// Node v13.2 --experimental-conditional-exports
 const { strToUtf8, utf8ToStr } = require('@asm/utf8');
 ```
 
 ## API
-##### `getUtf8Len(str[, offset, length])`
+##### `countUtf8(str[, offset, length])`
 ##### `strToUtf8(str[, offset, length])`
 ##### `strToUint8(str[, offset, length])`
-##### `utf8ToStr(buf[, offset, length])`
-##### `utf8viewToStr(view[, offset, length])`
+##### `utf8ToStr(bin[, offset, length])`
+##### `viewToStr(view[, offset, length])`
 
 ## License
 [MIT](LICENSE)
