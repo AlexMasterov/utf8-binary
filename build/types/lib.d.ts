@@ -6,7 +6,7 @@
 declare module '@asm/utf8' {
   type Binary = Array | Uint8Array | Buffer;
 
-  export function countUtf8(bin: Binary, offset?: number, length?: number) : number;
+  export function countUtf8(str: string, offset?: number, length?: number) : number;
   export function strToUint8(str: string, offset?: number, length?: number) : Uint8Array;
   export function strToUtf8(str: string, offset?: number, length?: number) : string;
   export function utf8ToStr(bin: Binary, offset?: number, length?: number): string;

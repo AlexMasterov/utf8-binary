@@ -7,10 +7,10 @@ const {
  SURROGATE_LOW,
 } = require('./unicode');
 
-const countUtf8 = (bin, offset = 0, length = bin.length) => {
+const countUtf8 = (str, offset = 0, length = str.length) => {
   let c, len = 0;
   while (offset < length) {
-    c = bin[offset];
+    c = str[offset];
 
     if (c < CONTROL) { // 1 byte
       len += 1;
