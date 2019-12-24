@@ -51,6 +51,7 @@
     "build:esm": "node build/esm",
     "build:mjs": "node build/mjs",
     "test": "mocha 'test/**/*.test.js'",
+    "test:coverage": "nyc mocha 'test/**/*.test.js'",
     "test:report": "nyc --reporter=html --reporter=text mocha 'test/**/*.test.js'",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -58,8 +59,8 @@
     "coveralls": "3.0.9",
     "fs-extra": "8.1.0",
     "mocha": "6.2.2",
-    "nyc": "15.0.0-beta.1",
-    "rollup": "1.27.6",
+    "nyc": "15.0.0",
+    "rollup": "1.27.14",
     "rollup-plugin-cjs-es": "0.9.0",
     "rollup-plugin-node-resolve": "5.2.0"
   },
