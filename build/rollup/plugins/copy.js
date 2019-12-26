@@ -22,6 +22,7 @@ const copy = ({ src, dest, exclude, verbose = false } = {}) => {
         console.error(err);
         throw err;
       }
+
       verbose && console.log(`Successfully copied ${src} -> ${dest}`);
     },
   };

@@ -11,6 +11,7 @@ const remove = ({ path, verbose = false } = {}) => ({
       console.error(err);
       throw err;
     }
+
     verbose && console.log(`Successfully deleted ${path}`);
   },
 });

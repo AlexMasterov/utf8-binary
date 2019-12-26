@@ -7,13 +7,13 @@ const patch = (patches) => {
   return {
     name: 'rollup/plugins/patch',
     transform(code, source) {
-      const newCode = { code, map: null };
+      const result = { code, map: null };
       const found = files.get(source);
       if (found) {
-        newCode.code = found.reduce(applyPatch, code);
+        result.code = found.reduce(applyPatch, code);
       }
 
-      return newCode;
+      return result;
     },
   };
 };
