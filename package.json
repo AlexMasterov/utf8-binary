@@ -1,6 +1,6 @@
 {
   "name": "@asm/utf8",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A fast UTF-8 encoding and decoding tools",
   "keywords": [
     "utf8",
